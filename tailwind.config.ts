@@ -26,11 +26,11 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         college: {
-          primary: "#9b87f5",
+          primary: "#1E88E5", // Changed to blue
           secondary: "#403E43",
           neutral: "#8E9196",
-          light: "#F5F5F7",
-          dark: "#1A1F2C",
+          light: "#E3F2FD", // Light blue
+          dark: "#1565C0", // Dark blue
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -80,10 +80,47 @@ export default {
             opacity: "1",
           },
         },
+        "slide-in": {
+          "0%": {
+            transform: "translateX(-100%)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+        },
+        float: {
+          "0%, 100%": {
+            transform: "translateY(0)",
+          },
+          "50%": {
+            transform: "translateY(-10px)",
+          },
+        },
       },
       animation: {
         "fade-up": "fade-up 0.5s ease-out",
         "fade-in": "fade-in 0.5s ease-out",
+        "slide-in": "slide-in 0.6s ease-out",
+        float: "float 3s ease-in-out infinite",
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: '65ch',
+            color: 'inherit',
+            a: {
+              color: '#1E88E5',
+              '&:hover': {
+                color: '#1565C0',
+              },
+            },
+            strong: {
+              color: '#1565C0',
+            },
+          },
+        },
       },
     },
   },
