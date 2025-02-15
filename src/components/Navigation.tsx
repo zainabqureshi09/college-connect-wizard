@@ -16,9 +16,11 @@ const Navigation = () => {
 
   const navLinks = [
     { name: "Home", href: "#home" },
-    { name: "Programs", href: "#programs" },
     { name: "About", href: "#about" },
-    { name: "News", href: "#news" },
+    { name: "Subjects", href: "#subjects" },
+    { name: "Admissions", href: "#admissions" },
+    { name: "Our Students", href: "#students" },
+    { name: "Our Faculty", href: "#faculty" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -34,12 +36,12 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <span className="text-2xl font-bold text-college-primary">
-              EduTech
+              Firoza Khatoon
             </span>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <a
                 key={link.name}
