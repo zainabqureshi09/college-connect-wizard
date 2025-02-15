@@ -5,17 +5,22 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-b from-college-light via-white to-white pt-16 overflow-hidden"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-b from-college-light via-white to-white pt-16 overflow-hidden relative"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      {/* Background pattern */}
+      <div className="absolute inset-0 z-0 opacity-10">
+        <div className="absolute inset-0 bg-gradient-to-r from-college-primary/20 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(30,136,229,0.1)_0%,transparent_100%)]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <div className="text-center">
-          <span className="inline-block px-4 py-1 mb-4 text-sm font-medium text-college-primary bg-college-primary/10 rounded-full animate-fade-in hover:bg-college-primary/20 transition-colors duration-300">
+          <span className="inline-block px-4 py-1 mb-4 text-sm font-medium text-college-primary bg-college-primary/10 rounded-full animate-fade-in hover:bg-college-primary/20 transition-all duration-300 transform hover:scale-105">
             Welcome to Firoza Khatoon Women College
           </span>
           <h1 className="text-4xl md:text-6xl font-bold text-college-dark mb-6 animate-slide-in tracking-tight">
             Empowering Women Through
-            <span className="text-college-primary animate-float inline-block">
-              {" "}
+            <span className="text-college-primary animate-float inline-block ml-2">
               Education
             </span>
           </h1>

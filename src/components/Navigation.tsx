@@ -26,66 +26,69 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-white/80 backdrop-blur-md shadow-sm"
+          ? "bg-white/90 backdrop-blur-md shadow-lg"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <span className="text-2xl font-bold text-college-primary">
+            <span className="text-2xl font-bold text-college-primary hover:text-college-dark transition-colors duration-300">
               Firoza Khatoon
             </span>
           </div>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-college-secondary hover:text-college-primary transition-colors duration-200"
+                className="text-college-secondary hover:text-college-primary transition-all duration-300 hover:scale-105 relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-college-primary after:bottom-[-4px] after:left-0 after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100"
               >
                 {link.name}
               </a>
             ))}
           </div>
 
-          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-college-secondary hover:text-college-primary"
+              className="text-college-secondary hover:text-college-primary transition-colors duration-300"
+              aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
-                <X className="h-6 w-6" />
+                <X className="h-6 w-6 animate-fade-in" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="h-6 w-6 animate-fade-in" />
               )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-md">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="block px-3 py-2 text-college-secondary hover:text-college-primary transition-colors duration-200"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
+      <div
+        className={`md:hidden transition-all duration-300 ease-in-out ${
+          isMobileMenuOpen
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-4 pointer-events-none"
+        }`}
+      >
+        <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-md shadow-lg">
+          {navLinks.map((link, index) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="block px-3 py-2 text-college-secondary hover:text-college-primary hover:bg-college-light transition-all duration-300"
+              style={{ animationDelay: `${index * 50}ms` }}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {link.name}
+            </a>
+          ))}
         </div>
-      )}
+      </div>
     </nav>
   );
 };
